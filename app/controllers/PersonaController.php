@@ -91,4 +91,20 @@ class PersonaController
     }
 
 
+    public function algo(){
+                if (!isset($_POST['nombre'], $_POST['apellido'], $_POST['genero'], $_POST['email'], $_POST['password'], )) {
+            die("Error, faltan datos en el formulario");
+        }
+
+        $this->persona->create([
+            'nombre' => $_POST['nombre'],
+            'apellido' => $_POST['apellido'],
+            'genero' => $_POST['genero'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+        ]);
+        header('Location: index.php?action=index');
+        exit;
+    }
+
 }
